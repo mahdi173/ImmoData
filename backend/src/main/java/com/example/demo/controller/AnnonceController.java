@@ -29,7 +29,7 @@ public class AnnonceController {
 
     @PostMapping("/load")
     public LoadAnnoncesResult loadAnnonces() {
-        return annonceService.loadFromPillr();
+        //return annonceService.loadFromPillr();
     }
 
     @GetMapping

@@ -1,71 +1,18 @@
 <main class="page">
   <header>
     <h1>{{ title() }}</h1>
-    <p>Angular 21 + Spring Boot 3.5 demo</p>
+    <p>
+      @if (loading()) {
+        Loading saved listings…
+      }
+    </p>
   </header>
 
   @if (error()) {
     <p class="error" role="alert">{{ error() }}</p>
   }
 
-  <section class="annonces-panel" aria-labelledby="annonces-heading">
-    <div class="section-head">
-      <h2 id="annonces-heading">Annonces</h2>
-      <button type="button" (click)="loadAnnonces()" [disabled]="loadingAnnonces()">
-        {{ loadingAnnonces() ? 'Loading…' : 'Load annonces' }}
-      </button>
-    </div>
-
-    @if (loadResult(); as result) {
-      <p class="status">
-        Fetched {{ result.fetched }} · saved {{ result.saved }} · {{ result.pages }} page(s)
-      </p>
-    }
-
-    <ul class="list">
-      @for (annonce of annonces(); track annonce.id) {
-        <li>
-          <div>
-            <strong>{{ annonce.commune?.name || annonce.insee || 'Annonce' }} · {{ annonce.type }}</strong>
-            <span>
-              {{ annonce.price != null ? (annonce.price + ' €') : '—' }}
-              · {{ annonce.surface != null ? (annonce.surface + ' m²') : '—' }}
-              · score {{ annonce.score ?? '—' }}
-            </span>
-            <span class="meta">{{ annonce.name }} · {{ annonce.source }}</span>
-          </div>
-        </li>
-      } @empty {
-        <li class="empty">No annonces yet. Use “Load annonces”.</li>
-      }
-    </ul>
+  <section class="map-panel" aria-label="annonces">
+    <div #map class="map" role="application"></div>
   </section>
-
-  <form class="form" (ngSubmit)="addItem()">
-    <label>
-      Name
-      <input name="name" [(ngModel)]="name" required placeholder="Notebook" />
-    </label>
-    <label>
-      Description
-      <input name="description" [(ngModel)]="description" placeholder="Optional" />
-    </label>
-    <button type="submit">Add item</button>
-  </form>
-
-  <ul class="list">
-    @for (item of items(); track item.id) {
-      <li>
-        <div>
-          <strong>{{ item.name }}</strong>
-          @if (item.description) {
-            <span>{{ item.description }}</span>
-          }
-        </div>
-        <button type="button" (click)="removeItem(item.id)">Delete</button>
-      </li>
-    } @empty {
-      <li class="empty">No items yet.</li>
-    }
-  </ul>
 </main>

@@ -9,142 +9,46 @@
 }
 
 .page {
-  max-width: 720px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 3rem 1.25rem 4rem;
+  padding: 2rem 1.25rem 3rem;
+  display: grid;
+  gap: 1rem;
+  min-height: 100vh;
+  grid-template-rows: auto auto 1fr;
 }
 
 header h1 {
   margin: 0 0 0.35rem;
-  font-size: 2.25rem;
+  font-size: 2rem;
   letter-spacing: -0.03em;
 }
 
 header p {
-  margin: 0 0 1.75rem;
+  margin: 0;
   color: #4a6275;
 }
 
 .error {
-  margin: 0 0 1rem;
+  margin: 0;
   padding: 0.75rem 1rem;
   border-left: 3px solid #b42318;
   background: #fff5f4;
   color: #7a271a;
 }
 
-.annonces-panel {
-  margin-bottom: 2rem;
-}
-
-.section-head {
+.map-panel {
+  min-height: 0;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.85rem;
 }
 
-.section-head h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  letter-spacing: -0.02em;
-}
-
-.status {
-  margin: 0 0 0.85rem;
-  color: #4a6275;
-  font-size: 0.92rem;
-}
-
-.meta {
-  color: #6b7f90 !important;
-  font-size: 0.82rem !important;
-}
-
-button:disabled {
-  opacity: 0.65;
-  cursor: wait;
-}
-
-.form {
-  display: grid;
-  gap: 0.85rem;
-  margin-bottom: 1.75rem;
-}
-
-label {
-  display: grid;
-  gap: 0.35rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-input {
-  padding: 0.7rem 0.85rem;
-  border: 1px solid #c5d4e0;
-  border-radius: 8px;
-  font: inherit;
-  background: #fff;
-}
-
-button {
-  justify-self: start;
-  padding: 0.7rem 1.1rem;
-  border: 0;
-  border-radius: 8px;
-  font: inherit;
-  font-weight: 600;
-  color: #fff;
-  background: #145da0;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0f4a80;
-}
-
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.65rem;
-}
-
-.list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1rem;
-  background: rgba(255, 255, 255, 0.85);
+.map {
+  flex: 1;
+  min-height: 520px;
+  height: calc(100vh - 10rem);
   border: 1px solid #d5e2ec;
-  border-radius: 10px;
-}
-
-.list li div {
-  display: grid;
-  gap: 0.2rem;
-}
-
-.list li span {
-  color: #4a6275;
-  font-size: 0.92rem;
-}
-
-.list button {
-  background: transparent;
-  color: #b42318;
-  border: 1px solid #f0b8b2;
-  padding: 0.4rem 0.75rem;
-}
-
-.list button:hover {
-  background: #fff5f4;
-}
-
-.empty {
-  color: #4a6275;
-  justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #dfeaf3;
+  box-shadow: 0 10px 30px rgba(18, 32, 46, 0.08);
 }
